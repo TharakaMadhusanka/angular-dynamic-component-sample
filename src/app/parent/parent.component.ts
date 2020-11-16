@@ -1,4 +1,5 @@
 import { Component, ComponentRef, OnInit } from '@angular/core';
+import { childInterface } from '../child/child.interface';
 import { DynamicComponentService } from '../dynamic/dynamic-component.service';
 import { myform } from '../my-form/imy-form.interface';
 import { MyFormComponent } from '../my-form/my-form.component';
@@ -15,10 +16,11 @@ export class ParentComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  showDynamicComponent(): void {
-    this.dynamicService.createComponent<myform>(MyFormComponent).subscribe((compRef: ComponentRef<myform>) => {
-      compRef.instance.inputFirstName = 'Tharaka';
-      compRef.instance.outPutEmitter.subscribe((response: boolean) => {
+  renderComponentDynamically(): void {
+    this.dynamicService.createComponent<childInterface>(MyFormComponent).subscribe((component: childInterface) => {
+      component.inputFirstName = 'Tharaka';
+      // Subscribe to Output emitter
+      component.outPutEmitter.subscribe((response: boolean) => {
         if (response) {
           this.triggerFromChild();
         }
@@ -27,7 +29,7 @@ export class ParentComponent implements OnInit {
   }
 
   triggerFromChild(): void {
-    alert('Trigger From Child');
+    alert('Trigger From Dyanmically Created Child');
   }
 
 }

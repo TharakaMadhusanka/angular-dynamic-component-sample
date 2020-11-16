@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DynamicComponent } from './dynamic.component';
+import { DynamicComponent } from './container.component';
 
 describe('DynamicComponent', () => {
   let component: DynamicComponent;

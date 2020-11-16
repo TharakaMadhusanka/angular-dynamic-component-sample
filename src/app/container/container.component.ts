@@ -1,12 +1,12 @@
 import { Component, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
-import { DynamicComponentService } from './dynamic-component.service';
+import { ContainerComponentService } from './container.component.service';
 
 @Component({
   selector: 'app-dynamic',
   templateUrl: './dynamic.component.html',
   styleUrls: ['./dynamic.component.css']
 })
-export class DynamicComponent implements OnInit {
+export class ContainerComponent implements OnInit {
 
   @ViewChild('dynamiccomponent', { read: ViewContainerRef, static: true })
   viewContainer: ViewContainerRef;

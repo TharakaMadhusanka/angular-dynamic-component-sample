@@ -1,12 +1,11 @@
 import { Type } from '@angular/compiler/src/core';
 import { ComponentFactoryResolver, ComponentRef, Injectable, ViewChild, ViewContainerRef } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { DynamicComponent } from './dynamic.component';
 
 @Injectable({
   providedIn: 'root'
 })
-export class DynamicComponentService {
+export class ContainerComponentService {
 
   private viewContainerRef: ViewContainerRef;
   private componentRef: ComponentRef<any>;
@@ -19,13 +18,15 @@ export class DynamicComponentService {
     this.viewContainerRef = containerRef;
   }
 
-  createComponent<T>(component: Type): Observable<ComponentRef<T>>
+  // Generic Method to Create given type of Component and Inject to Container
+  createComponent<T>(component: Type): Observable<T>
   {
 
     const componentFactory = this.componentFactoryResolver.resolveComponentFactory(component);
 
     this.componentRef = this.viewContainerRef.createComponent<T>(componentFactory);
 
-    return of(this.componentRef);
+    // return the created component type instance
+    return of(this.componentRef.instance);
   }
 }

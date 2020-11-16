@@ -1,12 +1,12 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { myform } from './imy-form.interface';
+import { childInterface } from './child.interface';
 
 @Component({
   selector: 'app-my-form',
   templateUrl: './my-form.component.html',
   styleUrls: ['./my-form.component.css']
 })
-export class MyFormComponent implements OnInit, myform {
+export class ChildComponent implements OnInit, childInterface {
 
   constructor() { }
 
