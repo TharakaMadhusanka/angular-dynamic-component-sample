@@ -3,23 +3,22 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ParentComponent } from './parent/parent.component';
+import { RequestorComponent } from './requestor/requestor.component';
 import { DynamicComponent } from './dynamic/dynamic.component';
-import { MyFormComponent } from './my-form/my-form.component';
-import { DynamicComponentService } from './dynamic/dynamic-component.service';
+import { ContainerComponent } from './container/container.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ParentComponent,
-    DynamicComponent,
-    MyFormComponent
+    RequestorComponent,
+    ContainerComponent,
+    DynamicComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [DynamicComponentService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

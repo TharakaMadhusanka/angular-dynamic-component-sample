@@ -2,9 +2,9 @@ import { Component, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
 import { ContainerComponentService } from './container.component.service';
 
 @Component({
-  selector: 'app-dynamic',
-  templateUrl: './dynamic.component.html',
-  styleUrls: ['./dynamic.component.css']
+  selector: 'app-container',
+  templateUrl: './container.component.html',
+  styleUrls: ['./container.component.css']
 })
 export class ContainerComponent implements OnInit {
 
@@ -12,12 +12,14 @@ export class ContainerComponent implements OnInit {
   viewContainer: ViewContainerRef;
 
   constructor(
-    private dynamicComponentService: DynamicComponentService
+    private containerComponentService: ContainerComponentService
   ) {
   }
 
   ngOnInit(): void {
-    this.dynamicComponentService.initializeContainerRef(this.viewContainer);
+    // Initialize the Container to behave as an anchor
+    // This can be considered as router-outlet
+    this.containerComponentService.initializeContainerRef(this.viewContainer);
   }
 
 }
