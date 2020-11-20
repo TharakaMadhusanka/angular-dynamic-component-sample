@@ -19,6 +19,7 @@ export class RequestorComponent implements OnInit {
   }
 
   renderComponentDynamically(): void {
+    // Requests from Container Service to create component
     this.containerService.createComponent<DynamicComponentInterface>(DynamicComponent)
       .subscribe((component: DynamicComponentInterface) => {
         
@@ -32,7 +33,7 @@ export class RequestorComponent implements OnInit {
           }
         });
 
-        // Trigger Dyanmic Component Method
+        // Trigger Dynamic Component's Method
         component.dynamicComponentExposedMethod();
       });
   }
